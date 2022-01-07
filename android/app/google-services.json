@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "838308239510",
+    "firebase_url": "https://nbbi-1900a.firebaseio.com",
+    "project_id": "nbbi-1900a",
+    "storage_bucket": "nbbi-1900a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838308239510:android:4c53eafd0ea07d99d54ab7",
+        "android_client_info": {
+          "package_name": "com.nbbi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838308239510-vov5s99jq104sir4n08m1bdm11j6rqlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlnIGckExrGM7NopZxYpNjxnY6_W5okOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "838308239510-vov5s99jq104sir4n08m1bdm11j6rqlp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

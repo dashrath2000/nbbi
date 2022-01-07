@@ -1,0 +1,5 @@
+export const ADMIN_USERNAME = 'nbbiapimobile'
+export const ADMIN_PASSWORD = 'Y5gh7v2Cpf4m'
+export const CORP_ID = '1074'
+export const AGENT_ID = '99160'
+// export const AGENT_ID = '45473'

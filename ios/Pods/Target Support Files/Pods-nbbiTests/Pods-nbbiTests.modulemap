@@ -1,0 +1,6 @@
+framework module Pods_nbbiTests {
+  umbrella header "Pods-nbbiTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

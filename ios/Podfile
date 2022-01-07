@@ -1,0 +1,53 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'nbbi' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for nbbi
+
+  target 'nbbi-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'nbbiTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'nbbi-tvOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for nbbi-tvOS
+
+end
+post_install do |installer|
+  ## Fix for XCode 12.5 beta
+  find_and_replace("../node_modules/react-native/React/CxxBridge/RCTCxxBridge.mm",
+  "_initializeModules:(NSArray<id<RCTBridgeModule>> *)modules", "_initializeModules:(NSArray<Class> *)modules")
+end
+
+def find_and_replace(dir, findstr, replacestr)
+  Dir[dir].each do |name|
+      text = File.read(name)
+      replace = text.gsub(findstr,replacestr)
+      if text != replace
+          puts "Fix: " + name
+          File.open(name, "w") { |file| file.puts replace }
+          STDOUT.flush
+      end
+  end
+  Dir[dir + '*/'].each(&method(:find_and_replace))
+  pre_install do |installer|
+    puts("Image fix for ios14: remove this when upgradeing to >= 0.63.3")
+    find = "_currentFrame.CGImage;"
+    replace = "_currentFrame.CGImage ;} else { [super displayLayer:layer];"
+    op = `sed -ie "s/#{find}/#{replace}/" ../node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m`
+    puts("Image fix for ios14 done")
+  end
+end
