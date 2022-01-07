@@ -4,7 +4,6 @@ import Button from 'react-native-button'
 import Modal from 'react-native-modal'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-// import BackgroundGeolocation from '@mauron85/react-native-background-geolocation'
 import styles from '../utils/style'
 import { getCredentials, onSignOut } from '../utils/auth'
 import Unauthorized from '../components/Unauthorized'
@@ -132,7 +131,6 @@ class AccountScreen extends React.Component {
         )
     }
 }
-
 const mapStateToProps = (state) => {
     return {
         userState: state.user,
@@ -143,5 +141,4 @@ function matchDispatchToProps(dispatch) {
         actions: bindActionCreators(authActions, dispatch)
     }
 }
-
 export default connect(mapStateToProps, matchDispatchToProps)(AccountScreen)
